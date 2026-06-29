@@ -1,12 +1,15 @@
-import GeneralForm from "./components/GeneralForm.jsx";
-import CVPreview from "./components/CVPreview.jsx";
-import { useState } from "react";
 import "./App.css";
+import { useState } from "react";
+import GeneralForm from "./components/GeneralForm.jsx";
+import EducationForm from "./components/EducationForm.jsx";
+import CVPreview from "./components/CVPreview.jsx";
 
 function App() {
   const [userName, setUserName] = useState("");
   const [userEmail, setUserEmail] = useState("");
   const [userPhone, setUserPhone] = useState("");
+
+  const [educationArr, setEducationArr] = useState([]);
 
   return (
     <main>
@@ -19,10 +22,16 @@ function App() {
           setEmail={setUserEmail}
           setPhone={setUserPhone}
         />
+        <EducationForm setEducationData={setEducationArr} />
       </section>
 
       <section className="cv-preview">
-        <CVPreview name={userName} email={userEmail} phone={userPhone} />
+        <CVPreview
+          name={userName}
+          email={userEmail}
+          phone={userPhone}
+          educationData={educationArr}
+        />
       </section>
     </main>
   );
