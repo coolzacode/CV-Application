@@ -1,3 +1,4 @@
+import { useState } from "react";
 export default function GeneralForm({
   name,
   email,
@@ -6,6 +7,8 @@ export default function GeneralForm({
   setEmail,
   setPhone,
 }) {
+  const [isOpen, setIsOpen] = useState(false);
+
   function updateName(e) {
     setName(e.target.value);
   }
@@ -19,18 +22,28 @@ export default function GeneralForm({
   }
 
   return (
-    <form className="general-form">
-      <label htmlFor="name">Name</label>
-      <input id="name" type="text" value={name} onChange={updateName} />
+    <div className="general-section-wrapper">
+      <div className="section-header">
+        <h2>Personal Details</h2>
+        <button type="button" onClick={() => setIsOpen(!isOpen)}>
+          {isOpen ? "Minimize" : "Expand"}
+        </button>
+      </div>
+      {isOpen && (
+        <form className="general-form">
+          <label htmlFor="name">Name</label>
+          <input id="name" type="text" value={name} onChange={updateName} />
 
-      <label htmlFor="email">Email</label>
-      <input id="email" type="email" value={email} onChange={updateEmail} />
+          <label htmlFor="email">Email</label>
+          <input id="email" type="email" value={email} onChange={updateEmail} />
 
-      <label htmlFor="tel">Phone</label>
-      <input id="tel" type="tel" value={phone} onChange={updatePhone} />
+          <label htmlFor="tel">Phone</label>
+          <input id="tel" type="tel" value={phone} onChange={updatePhone} />
 
-      <button type="button">Edit</button>
-      <button>Save</button>
-    </form>
+          <button type="button">Edit</button>
+          <button>Save</button>
+        </form>
+      )}
+    </div>
   );
 }
