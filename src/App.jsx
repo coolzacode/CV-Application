@@ -2,6 +2,7 @@ import "./App.css";
 import { useState } from "react";
 import GeneralForm from "./components/GeneralForm.jsx";
 import EducationForm from "./components/EducationForm.jsx";
+import ExperienceForm from "./components/ExperienceForm.jsx";
 import CVPreview from "./components/CVPreview.jsx";
 
 function App() {
@@ -10,6 +11,7 @@ function App() {
   const [userPhone, setUserPhone] = useState("");
 
   const [educationArr, setEducationArr] = useState([]);
+  const [experienceArr, setExperienceArr] = useState([]);
 
   return (
     <main>
@@ -23,6 +25,7 @@ function App() {
           setPhone={setUserPhone}
         />
         <EducationForm setEducationData={setEducationArr} />
+        <ExperienceForm setExperienceData={setExperienceArr} />
       </section>
 
       <section className="cv-preview">
@@ -31,6 +34,7 @@ function App() {
           email={userEmail}
           phone={userPhone}
           educationData={educationArr}
+          experienceData={experienceArr}
         />
       </section>
     </main>
