@@ -44,61 +44,80 @@ export default function EducationForm({ educationData, setEducationData }) {
   }
 
   return (
-    <div className="education-section-wrapper">
-      <div className="section-header">
+    <section className="education-section">
+      <header className="section-header">
         <h2>Education Details</h2>
-        <button type="button" onClick={() => setIsOpen(!isOpen)}>
-          {isOpen ? "Minimize" : "Expand"}
+        <button
+          className="btn-toggle"
+          type="button"
+          onClick={() => setIsOpen(!isOpen)}
+        >
+          {isOpen ? "\u25B2" : "\u25BC"}
         </button>
-      </div>
+      </header>
+
       {isOpen && (
         <>
           <form className="education-form">
-            <label htmlFor="school">School</label>
-            <input
-              id="school"
-              type="text"
-              value={school}
-              onChange={updateSchool}
-            />
-            <label htmlFor="degree">Degree</label>
-            <input
-              id="degree"
-              type="text"
-              value={degree}
-              onChange={updateDegree}
-            />
-            <label htmlFor="study">Field of Study</label>
-            <input
-              id="study"
-              type="text"
-              value={study}
-              onChange={updateStudy}
-            />
-            <label htmlFor="location">Location</label>
-            <input
-              id="location"
-              type="text"
-              value={location}
-              onChange={updateLocation}
-            />
-            <button onClick={handleSubmit}>Add School</button>
+            <div className="input-group">
+              <label htmlFor="school">School</label>
+              <input
+                id="school"
+                type="text"
+                value={school}
+                onChange={updateSchool}
+              />
+            </div>
+            <div className="input-group">
+              <label htmlFor="degree">Degree</label>
+              <input
+                id="degree"
+                type="text"
+                value={degree}
+                onChange={updateDegree}
+              />
+            </div>
+            <div className="input-group">
+              <label htmlFor="study">Field of Study</label>
+              <input
+                id="study"
+                type="text"
+                value={study}
+                onChange={updateStudy}
+              />
+            </div>
+            <div className="input-group">
+              <label htmlFor="location">Location</label>
+              <input
+                id="location"
+                type="text"
+                value={location}
+                onChange={updateLocation}
+              />
+            </div>
+            <button className="btn-add" onClick={handleSubmit}>
+              Add School
+            </button>
           </form>
 
-          <div className="saved-schools-list">
+          <ul className="saved-items-list">
             {educationData.map((edu) => (
-              <div key={edu.id} className="saved-item-card">
+              <li key={edu.id} className="saved-item-card">
                 <p>
                   {edu.school} - {edu.degree}
                 </p>
-                <button type="button" onClick={() => handleDelete(edu.id)}>
+                <button
+                  className="btn-delete"
+                  type="button"
+                  onClick={() => handleDelete(edu.id)}
+                >
                   Delete
                 </button>
-              </div>
+              </li>
             ))}
-          </div>
+          </ul>
         </>
       )}
-    </div>
+    </section>
   );
 }

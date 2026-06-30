@@ -6,13 +6,16 @@ export default function EducationPreview({
   location,
 }) {
   return (
-    <div className="education-preview">
-      <div id={id}>
-        <h1>{school}</h1>
-        <span>{degree}</span>
-        <span>{study}</span>
-        <span>{location}</span>
+    <article className="preview-entry" id={id}>
+      <div className="entry-header">
+        <h3 className="entry-title">{school}</h3>
+        <span className="entry-location">{location}</span>
       </div>
-    </div>
+      <div className="entry-body">
+        <span className="entry-degree">
+          {degree} in {study}
+        </span>
+      </div>
+    </article>
   );
 }

@@ -22,28 +22,50 @@ export default function GeneralForm({
   }
 
   return (
-    <div className="general-section-wrapper">
-      <div className="section-header">
+    <section className="general-section">
+      <header className="section-header">
         <h2>Personal Details</h2>
-        <button type="button" onClick={() => setIsOpen(!isOpen)}>
-          {isOpen ? "Minimize" : "Expand"}
+        <button
+          className="btn-toggle"
+          type="button"
+          onClick={() => setIsOpen(!isOpen)}
+        >
+          {isOpen ? "\u25B2" : "\u25BC"}
         </button>
-      </div>
+      </header>
+
       {isOpen && (
         <form className="general-form">
-          <label htmlFor="name">Name</label>
-          <input id="name" type="text" value={name} onChange={updateName} />
+          <div className="input-group">
+            <label htmlFor="name">Name</label>
+            <input id="name" type="text" value={name} onChange={updateName} />
+          </div>
 
-          <label htmlFor="email">Email</label>
-          <input id="email" type="email" value={email} onChange={updateEmail} />
+          <div className="input-group">
+            <label htmlFor="email">Email</label>
+            <input
+              id="email"
+              type="email"
+              value={email}
+              onChange={updateEmail}
+            />
+          </div>
 
-          <label htmlFor="tel">Phone</label>
-          <input id="tel" type="tel" value={phone} onChange={updatePhone} />
+          <div className="input-group">
+            <label htmlFor="tel">Phone</label>
+            <input id="tel" type="tel" value={phone} onChange={updatePhone} />
+          </div>
 
-          <button type="button">Edit</button>
-          <button type="button">Save</button>
+          <div className="form-actions">
+            <button className="btn-edit" type="button">
+              Edit
+            </button>
+            <button className="btn-save" type="button">
+              Save
+            </button>
+          </div>
         </form>
       )}
-    </div>
+    </section>
   );
 }
