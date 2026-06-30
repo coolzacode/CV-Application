@@ -14,21 +14,23 @@ export default function CVPreview({
       <GeneralPreview name={name} email={email} phone={phone} />
       {educationData.map((edu) => (
         <EducationPreview
-          key={edu.id}
+          id={edu.id}
           school={edu.school}
           degree={edu.degree}
           study={edu.study}
           location={edu.location}
+          key={edu.id}
         />
       ))}
       {experienceData.map((comp) => (
         <ExperiencePreview
-          key={comp.id}
+          id={comp.id}
           company={comp.company}
           position={comp.position}
           location={comp.location}
           date={comp.date}
           responsiblities={comp.responsibilities}
+          key={comp.id}
         />
       ))}
     </>

@@ -1,5 +1,5 @@
 export default function EducationPreview({
-  key,
+  id,
   school,
   degree,
   study,
@@ -7,7 +7,7 @@ export default function EducationPreview({
 }) {
   return (
     <div className="education-preview">
-      <div id={key}>
+      <div id={id}>
         <h1>{school}</h1>
         <span>{degree}</span>
         <span>{study}</span>

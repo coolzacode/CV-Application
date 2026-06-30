@@ -24,8 +24,14 @@ function App() {
           setEmail={setUserEmail}
           setPhone={setUserPhone}
         />
-        <EducationForm setEducationData={setEducationArr} />
-        <ExperienceForm setExperienceData={setExperienceArr} />
+        <EducationForm
+          educationData={educationArr}
+          setEducationData={setEducationArr}
+        />
+        <ExperienceForm
+          experienceData={experienceArr}
+          setExperienceData={setExperienceArr}
+        />
       </section>
 
       <section className="cv-preview">

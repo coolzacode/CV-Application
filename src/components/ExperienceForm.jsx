@@ -1,6 +1,6 @@
 import { useState } from "react";
 
-export default function ExperienceForm({ setExperienceData }) {
+export default function ExperienceForm({ experienceData, setExperienceData }) {
   const [companyName, setCompanyName] = useState("");
   const [position, setPosition] = useState("");
   const [location, setLocation] = useState("");
@@ -36,23 +36,47 @@ export default function ExperienceForm({ setExperienceData }) {
     setExperienceData((prevArray) => [...prevArray, newExperience]);
   }
 
+  function handleDelete(idToDelete) {
+    setExperienceData((prevArray) =>
+      prevArray.filter((comp) => comp.id !== idToDelete),
+    );
+  }
+
   return (
-    <form className="experience-form">
-      <label htmlFor="company-name">Company Name</label>
-      <input id="company-name" type="text" onChange={updateCompanyName} />
-      <label htmlFor="position">Position</label>
-      <input id="position" type="text" onChange={updatePosition} />
-      <label htmlFor="location">Location</label>
-      <input id="location" type="text" onChange={updateLocation} />
-      <label htmlFor="date">Date</label>
-      <input id="date" type="text" onChange={updateDate} />
-      <label htmlFor="responsibilities">Resposibilities</label>
-      <textarea
-        id="responsibilities"
-        onChange={updateResponsibilities}
-      ></textarea>
-      <button type="button">Delete</button>
-      <button onClick={handleSubmit}>Add Experience</button>
-    </form>
+    <>
+      <form className="experience-form">
+        <label htmlFor="company-name">Company Name</label>
+        <input id="company-name" type="text" onChange={updateCompanyName} />
+        <label htmlFor="position">Position</label>
+        <input id="position" type="text" onChange={updatePosition} />
+        <label htmlFor="location">Location</label>
+        <input id="location" type="text" onChange={updateLocation} />
+        <label htmlFor="date">Date</label>
+        <input id="date" type="text" onChange={updateDate} />
+        <label htmlFor="responsibilities">Resposibilities</label>
+        <textarea
+          id="responsibilities"
+          onChange={updateResponsibilities}
+        ></textarea>
+        <button onClick={handleSubmit}>Add Experience</button>
+      </form>
+
+      <div className="saved-experience-list">
+        {experienceData.map((comp) => (
+          <div key={comp.id} className="saved-item-card">
+            <p>
+              {comp.company} - {comp.location}
+            </p>
+            <p>
+              {comp.postion} - {comp.date}
+            </p>
+            <p>{comp.responsibilities}</p>
+            <button type="delete" onClick={() => handleDelete(comp.id)}>
+              Delete
+            </button>
+          </div>
+        ))}
+      </div>
+    </>
   );
 }
