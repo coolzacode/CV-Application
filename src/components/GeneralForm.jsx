@@ -41,7 +41,7 @@ export default function GeneralForm({
           <input id="tel" type="tel" value={phone} onChange={updatePhone} />
 
           <button type="button">Edit</button>
-          <button>Save</button>
+          <button type="button">Save</button>
         </form>
       )}
     </div>

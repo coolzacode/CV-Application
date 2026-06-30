@@ -30,6 +30,11 @@ export default function EducationForm({ educationData, setEducationData }) {
       location: location,
     };
     setEducationData((prevArray) => [...prevArray, newSchool]);
+
+    setSchool("");
+    setDegree("");
+    setStudy("");
+    setLocation("");
   }
 
   function handleDelete(idToDelete) {
@@ -50,13 +55,33 @@ export default function EducationForm({ educationData, setEducationData }) {
         <>
           <form className="education-form">
             <label htmlFor="school">School</label>
-            <input id="school" type="text" onChange={updateSchool} />
+            <input
+              id="school"
+              type="text"
+              value={school}
+              onChange={updateSchool}
+            />
             <label htmlFor="degree">Degree</label>
-            <input id="degree" type="text" onChange={updateDegree} />
+            <input
+              id="degree"
+              type="text"
+              value={degree}
+              onChange={updateDegree}
+            />
             <label htmlFor="study">Field of Study</label>
-            <input id="study" type="text" onChange={updateStudy} />
+            <input
+              id="study"
+              type="text"
+              value={study}
+              onChange={updateStudy}
+            />
             <label htmlFor="location">Location</label>
-            <input id="location" type="text" onChange={updateLocation} />
+            <input
+              id="location"
+              type="text"
+              value={location}
+              onChange={updateLocation}
+            />
             <button onClick={handleSubmit}>Add School</button>
           </form>
 

@@ -29,7 +29,7 @@ export default function CVPreview({
           position={comp.position}
           location={comp.location}
           date={comp.date}
-          responsiblities={comp.responsibilities}
+          responsibilities={comp.responsibilities}
           key={comp.id}
         />
       ))}

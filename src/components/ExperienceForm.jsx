@@ -35,6 +35,12 @@ export default function ExperienceForm({ experienceData, setExperienceData }) {
       responsibilities: responsibilities,
     };
     setExperienceData((prevArray) => [...prevArray, newExperience]);
+
+    setCompanyName("");
+    setPosition("");
+    setLocation("");
+    setDate("");
+    setResponsibilities("");
   }
 
   function handleDelete(idToDelete) {
@@ -55,14 +61,29 @@ export default function ExperienceForm({ experienceData, setExperienceData }) {
         <>
           <form className="experience-form">
             <label htmlFor="company-name">Company Name</label>
-            <input id="company-name" type="text" onChange={updateCompanyName} />
+            <input
+              id="company-name"
+              type="text"
+              value={companyName}
+              onChange={updateCompanyName}
+            />
             <label htmlFor="position">Position</label>
-            <input id="position" type="text" onChange={updatePosition} />
+            <input
+              id="position"
+              type="text"
+              value={position}
+              onChange={updatePosition}
+            />
             <label htmlFor="location">Location</label>
-            <input id="location" type="text" onChange={updateLocation} />
+            <input
+              id="location"
+              type="text"
+              value={location}
+              onChange={updateLocation}
+            />
             <label htmlFor="date">Date</label>
-            <input id="date" type="text" onChange={updateDate} />
-            <label htmlFor="responsibilities">Resposibilities</label>
+            <input id="date" type="text" value={date} onChange={updateDate} />
+            <label htmlFor="responsibilities">Responsibilities</label>
             <textarea
               id="responsibilities"
               onChange={updateResponsibilities}
@@ -77,10 +98,10 @@ export default function ExperienceForm({ experienceData, setExperienceData }) {
                   {comp.company} - {comp.location}
                 </p>
                 <p>
-                  {comp.postion} - {comp.date}
+                  {comp.position} - {comp.date}
                 </p>
                 <p>{comp.responsibilities}</p>
-                <button type="delete" onClick={() => handleDelete(comp.id)}>
+                <button type="button" onClick={() => handleDelete(comp.id)}>
                   Delete
                 </button>
               </div>
