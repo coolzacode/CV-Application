@@ -199,3 +199,15 @@ ul.saved-items-list {
   margin-top: 0.5rem;
   font-size: 0.95rem;
 }
+
+@media (max-width: 1024px) {
+  main {
+    grid-template-columns: 1fr;
+    gap: 2rem;
+    padding: 1rem;
+  }
+  .cv-preview {
+    padding: 0.5in;
+    max-height: none;
+  }
+}
