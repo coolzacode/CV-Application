@@ -1,6 +1,34 @@
+:root {
+  /* Base Colors */
+  --clr-black: #000000;
+  --clr-prussian-blue: #14213d;
+  --clr-orange: #fca311;
+  --clr-alabaster-grey: #e5e5e5;
+  --clr-white: #ffffff;
+  --clr-danger-red: #d90429;
+
+  /* Color Variables */
+  --bg-app: var(--clr-alabaster-grey);
+  --bg-surface: var(--clr-white);
+
+  --text-primary: var(--clr-black);
+  --text-heading: var(--clr-prussian-blue);
+  --text-inverse: var(--clr-white);
+
+  --border-strong: 2px solid var(--clr-prussian-blue);
+  --border-light: 1px solid #cccccc;
+
+  --btn-primary-bg: var(--clr-orange);
+  --btn-primary-hover: #e08b00;
+  --btn-secondary-bg: var(--clr-prussian-blue);
+  --btn-secondary-hover: var(--clr-black);
+  --btn-danger-bg: var(--clr-danger-red);
+  --btn-danger-hover: #a3001b;
+}
+
 /* Global Reset */
-* {
-  margin: 0;
-  padding: 0;
+*,
+*::before,
+*::after {
   box-sizing: border-box;
 }
