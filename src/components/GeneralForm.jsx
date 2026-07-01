@@ -55,15 +55,6 @@ export default function GeneralForm({
             <label htmlFor="tel">Phone</label>
             <input id="tel" type="tel" value={phone} onChange={updatePhone} />
           </div>
-
-          <div className="form-actions">
-            <button className="btn-edit" type="button">
-              Edit
-            </button>
-            <button className="btn-save" type="button">
-              Save
-            </button>
-          </div>
         </form>
       )}
     </section>
