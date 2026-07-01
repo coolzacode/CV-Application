@@ -192,6 +192,9 @@ ul.saved-items-list {
 .entry-position,
 .entry-degree {
   font-style: italic;
+}
+
+.entry-position {
   font-weight: 600;
 }
 
